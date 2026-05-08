@@ -12,7 +12,7 @@ Arrays Cpp Lab
 void tenIntegers();
 void iceCreamStore();
 void agesCalc();
-void avgs(); 
+void avgs(float scores[], int size); 
 using std::cout, std::cin, std::string; 
 
 int main() {
@@ -21,7 +21,10 @@ int main() {
     tenIntegers();
     iceCreamStore();
     agesCalc();
-    avgs();
+    float scores[] = {85.8, 93.7, 76, 88.5, 100, 91.3}; 
+    // Size
+    int size = sizeof(scores)/sizeof(float);
+    avgs(scores, size);
     return 0; 
 }
 
@@ -109,17 +112,15 @@ void agesCalc(){
     cout << "Total people over 15 is " << agesOver15 << ". \n"; 
 }
 
-void avgs(){
+void avgs(float scores[], int size){
     // Score array
-    float scores[] = {85.8, 93.7, 76, 88.5, 100, 91.3}; 
-    // Size
-    int size = sizeof(scores)/sizeof(float);
+    
 
     // Sum
     float total = 0; 
     
-    for (float s : scores){
-        total += s; 
+    for (int i = 0; i < size; i++){
+        total += scores[i]; 
     }
 
     cout << "Average is: " <<  std::fixed << std::setprecision(1) << total/size << ". \n";
